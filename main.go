@@ -90,7 +90,7 @@ func drawLGTM(img image.Image) image.Image {
 	rect := img.Bounds()
 	size := rect.Size()
 
-	base := imaging.New(LGTMSize, LGTMSize, color.RGBA{255, 255, 255, 255})
+	lgtm := imaging.New(LGTMSize, LGTMSize, color.RGBA{255, 255, 255, 255})
 	mask, err := imaging.Open(maskPath())
 	if err != nil {
 		exit(err)
@@ -99,7 +99,7 @@ func drawLGTM(img image.Image) image.Image {
 	result := imaging.New(size.X, size.Y, color.RGBA{0, 0, 0, 0})
 
 	draw.Draw(result, rect, img, rect.Min, draw.Src)
-	draw.DrawMask(result, lgtmRect(img), base, base.Bounds().Min, mask, mask.Bounds().Min, draw.Over)
+	draw.DrawMask(result, lgtmRect(img), lgtm, lgtm.Bounds().Min, mask, mask.Bounds().Min, draw.Over)
 
 	return result
 }
