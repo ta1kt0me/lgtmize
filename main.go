@@ -60,16 +60,16 @@ func lgtmRect(img image.Image) image.Rectangle {
 	var min, max image.Point
 	switch {
 	case size.X == size.Y:
-		min, max = image.ZP, image.Point{LGTMSize, LGTMSize}
+		min, max = image.ZP, image.Pt(LGTMSize, LGTMSize)
 	case size.X > size.Y:
-		min = image.Point{(size.X - LGTMSize) / 2, 0}
-		max = image.Point{min.X + LGTMSize, min.Y + LGTMSize}
+		min = image.Pt((size.X-LGTMSize)/2, 0)
+		max = image.Pt(min.X+LGTMSize, min.Y+LGTMSize)
 	case size.X < size.Y:
-		min = image.Point{0, (size.Y - LGTMSize) / 2}
-		max = image.Point{min.X + LGTMSize, min.Y + LGTMSize}
+		min = image.Pt(0, (size.Y-LGTMSize)/2)
+		max = image.Pt(min.X+LGTMSize, min.Y+LGTMSize)
 	}
 
-	return image.Rectangle{min, max}
+	return image.Rect(min.X, min.Y, max.X, max.Y)
 }
 
 func resize(img image.Image) image.Image {
