@@ -36,7 +36,11 @@ func main() {
 		}
 
 		resized := resize(src)
-		lgtmized := drawLGTM(resized)
+
+		lgtmized, err := drawLGTM(resized)
+		if err != nil {
+			exit(err)
+		}
 
 		if err := save(lgtmized, srcPath); err != nil {
 			exit(err)
@@ -86,14 +90,14 @@ func resize(img image.Image) image.Image {
 	return imaging.Resize(img, x, y, filter)
 }
 
-func drawLGTM(img image.Image) image.Image {
+func drawLGTM(img image.Image) (image.Image, error) {
 	rect := img.Bounds()
 	size := rect.Size()
 
 	lgtm := imaging.New(LGTMSize, LGTMSize, color.RGBA{255, 255, 255, 255})
 	mask, err := imaging.Open(maskPath())
 	if err != nil {
-		exit(err)
+		return nil, err
 	}
 
 	result := imaging.New(size.X, size.Y, color.RGBA{0, 0, 0, 0})
@@ -101,7 +105,7 @@ func drawLGTM(img image.Image) image.Image {
 	draw.Draw(result, rect, img, rect.Min, draw.Src)
 	draw.DrawMask(result, lgtmRect(img), lgtm, lgtm.Bounds().Min, mask, mask.Bounds().Min, draw.Over)
 
-	return result
+	return result, nil
 }
 
 func save(img image.Image, srcPath string) error {
