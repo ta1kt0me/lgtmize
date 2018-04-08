@@ -7,7 +7,7 @@ ref. [Golang で好きな画像を LGTMize する](http://m0t0k1ch1st0ry.com/blo
 ## Installation
 
 ``` sh
-$ go get github.com/m0t0k1ch1/lgtmize
+$ go get -u github.com/m0t0k1ch1/lgtmize
 ```
 
 ## Usage
