@@ -1,0 +1,6 @@
+github.com/codegangsta/cli v1.20.0 h1:iX1FXEgwzd5+XN6wk5cVHOGQj6Q3Dcp20lUeS4lHNTw=
+github.com/codegangsta/cli v1.20.0/go.mod h1:/qJNoX69yVSKu5o4jLyXAENLRyk1uhi7zkbQ3slBdOA=
+github.com/disintegration/imaging v1.4.1 h1:cwtUiS5AYdPT0/GRE3EFHnT+ajKBaYsqzPKOMmqqudk=
+github.com/disintegration/imaging v1.4.1/go.mod h1:9B/deIUIrliYkyMTuXJd6OUFLcrZ2tf+3Qlwnaf/CjU=
+golang.org/x/image v0.0.0-20180403161127-f315e4403028 h1:jFFHllCVd24xe3zq5lxsTaMRYoTWSrdWOIA5PEltZ8I=
+golang.org/x/image v0.0.0-20180403161127-f315e4403028/go.mod h1:ux5Hcp/YLpHSI86hEcLt0YII63i6oz57MZXIpbrjZUs=
